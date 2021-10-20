@@ -1,0 +1,6 @@
+{
+  "access_token": "YOUR_ACCESS_TOKEN",
+  "start_date": "2019-10-01T01:00:00Z",
+  "partners": ["SAMPLE_PARTNER"],
+  "feed_id": 0
+}
