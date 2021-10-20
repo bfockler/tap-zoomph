@@ -166,7 +166,7 @@ def do_sync(access_token, start_date, partners, feedId):
         "RetweetCount": {"type": ["number", "null"]},
         "SadCount": {"type": ["number", "null"]},
         "Sentiment": {"type": ["string", "null"]},
-        "ServiceId": {"type": ["number", "null"]},
+        "ServiceId": {"type": ["string", "null"]},
         "ServiceType": {"type": ["string", "null"]},
         "ShareCount": {"type": ["number", "null"]},
         "Url": {"type": ["string", "null"]},
