@@ -42,10 +42,9 @@ def get(url):
 
 
 def do_sync(access_token, start_date, partners, feedId):
-    # state = {"start_date": start_date}
-    # next_date = start_date
+    state = {"currently_syncing": "true"}
+    singer.write_state(state)
 
-    # if not end_date:
     end_date = (
         datetime.datetime.today() + datetime.timedelta(days=1)).strftime(DATE_FORMAT)
 
@@ -74,6 +73,7 @@ def do_sync(access_token, start_date, partners, feedId):
                  }
             )
         )
+        state = {"currently_syncing": "false"}
         singer.write_state(state)
         sys.exit(-1)
 
@@ -89,10 +89,17 @@ def do_sync(access_token, start_date, partners, feedId):
         logger.info(json.dumps(response))
         logger.info(response['Report'])
         while response['Report'] is None:
-          logger.info('Sleeping 1 minute to wait for report to generate')
-          time.sleep(30)
-          response = get(url)
-          response = response.json()
+          logger.info('Sleeping 30 seconds to wait for report to generate')
+          try:
+            response['Status'].index('Error')
+          except ValueError:
+            time.sleep(30)
+            response = get(url)
+            response = response.json()
+          else:
+            state = {"currently_syncing": "false"}
+            singer.write_state(state)
+            sys.exit(-1)
     except requests.exceptions.RequestException as e:
         logger.critical(
             json.dumps(
@@ -102,7 +109,8 @@ def do_sync(access_token, start_date, partners, feedId):
                  }
             )
         )
-        # singer.write_state(state)
+        state = {"currently_syncing": "false"}
+        singer.write_state(state)
         sys.exit(-1)
 
     schema = {
@@ -182,6 +190,9 @@ def do_sync(access_token, start_date, partners, feedId):
 
     for p in posts:
       singer.write_records("zoomph", [p])
+
+    state = {"currently_syncing": "false"}
+    singer.write_state(state)
 
 
 def main():
