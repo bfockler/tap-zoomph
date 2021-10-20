@@ -125,7 +125,7 @@ def do_sync(access_token, start_date, partners, feedId):
         "ExitsCount": {"type": ["string", "null"]},
         "FollowerCount": {"type": ["number", "null"]},
         "FollowersGained": {"type": ["number", "null"]},
-        "FollowerInteractionRate": {"type": ["string", "null"]},
+        "FollowerInteractionRate": {"type": ["number", "null"]},
         "FrameUrl": {"type": ["string", "null"]},
         "HahaCount": {"type": ["number", "null"]},
         "Hashtags": {"type": ["array", "null"]},
