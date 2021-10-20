@@ -150,7 +150,7 @@ def do_sync(access_token, start_date, partners, feedId):
         "Message": {"type": ["string", "null"]},
         "Logo AI": {"type": ["string", "null"]},
         "Text Mention": {"type": ["array", "string", "null"]},
-        "Tags": {"type": ["array", "null"]},
+        "Tags": {"type": ["array", "string", "null"]},
         "OrganicImpressions": {"type": ["number", "null"]},
         "PaidImpressions": {"type": ["number", "null"]},
         "Partner": {"type": ["string", "null"]},
