@@ -81,7 +81,7 @@ def do_sync(access_token, start_date, partners, feedId):
 
     logger.info(json.dumps(params))
 
-    url = endpoint + '/' + str(reportID) + '?access_token=' + access_token + '&fields=Id&fields=Partner&fields=PartnerMentionType&fields=ServiceType&fields=ServiceId&fields=PartnerExposureCreator&fields=PartnerExposureCreatorName&fields=PartnerExposureDate&fields=Message&fields=ContentType&fields=Url&fields=Verified&fields=FollowerCount&fields=FollewerInteractionRate&fields=Impressions&fields=ProjectedImpressions&fields=RetweetCount&fields=LikeCount&fields=ReplyCount&fields=CommentCount&fields=ViewCount&fields=LoveCount&fields=ShareCount&fields=WowCount&fields=HahaCount&fields=SadCount&fields=AngryCount&fields=AverageConcurrentViewers&fields=IsProrated&fields=AnalyzedProratedSeconds&fields=BrandExposureValue&fields=HoursWatched&fields=VideoTotalSeconds&fields=LogoAverageClarity&fields=LogoAverageSize&fields=LogoStartSeconds&fields=LogoEndSeconds&fields=LogoTotalSeconds&fields=LogoFrameCount&fields=LogoImpressions&fields=Mentions&fields=Hashtags&fields=Engagement&fields=FrameUrl&fields=Language&fields=ProvinceFips&fields=CountryFips&fields=Sentiment&fields=VideoViews&fields=Tags&fields=LogoAI&fields=TextMention&fields=PartnerAssetLabel&fields=AssetAI&fields=LogoOnAssetAI&fields=ExitsCount&fields=TapForwardCount&fields=TapBackwardCount&fields=DislikeCount&fields=Reach&fields=OrganicImpressions&fields=PaidImpressions&fields=EngagementRate&fields=FollowersGained&fields=PeakLiveViewerCount&fields=LiveViews&fields=ProjectedVideoViews&fields=PostValue&fields=Interactions&fields=FollowerInteractionRate&fields=LogoLocation&fields=AllLogos'
+    url = endpoint + '/' + str(reportID) + '?access_token=' + access_token + '&fields=Id&fields=Partner&fields=PartnerMentionType&fields=ServiceType&fields=ServiceId&fields=PartnerExposureCreator&fields=PartnerExposureCreatorName&fields=PartnerExposureDate&fields=Message&fields=ContentType&fields=Url&fields=Verified&fields=FollowerCount&fields=FollewerInteractionRate&fields=Impressions&fields=ProjectedImpressions&fields=RetweetCount&fields=LikeCount&fields=ReplyCount&fields=CommentCount&fields=ViewCount&fields=LoveCount&fields=ShareCount&fields=WowCount&fields=HahaCount&fields=SadCount&fields=AngryCount&fields=AverageConcurrentViewers&fields=IsProrated&fields=AnalyzedProratedSeconds&fields=BrandExposureValue&fields=HoursWatched&fields=VideoTotalSeconds&fields=LogoAverageClarity&fields=LogoAverageSize&fields=LogoStartSeconds&fields=LogoEndSeconds&fields=LogoTotalSeconds&fields=LogoFrameCount&fields=LogoImpressions&fields=Mentions&fields=Hashtags&fields=Engagement&fields=FrameUrl&fields=Language&fields=ProvinceFips&fields=CountryFips&fields=Sentiment&fields=VideoViews&fields=TextMention&fields=AssetAI&fields=LogoOnAssetAI&fields=ExitsCount&fields=TapForwardCount&fields=TapBackwardCount&fields=DislikeCount&fields=Reach&fields=OrganicImpressions&fields=PaidImpressions&fields=EngagementRate&fields=FollowersGained&fields=PeakLiveViewerCount&fields=LiveViews&fields=ProjectedVideoViews&fields=PostValue&fields=Interactions&fields=FollowerInteractionRate&fields=LogoLocation&fields=AllLogos'
     logger.info(url)
     try:
         response = get(url)
@@ -148,13 +148,10 @@ def do_sync(access_token, start_date, partners, feedId):
         "LoveCount": {"type": ["number", "null"]},
         "Mentions": {"type": ["array", "null"]},
         "Message": {"type": ["string", "null"]},
-        "Logo AI": {"type": ["string", "null"]},
         "Text Mention": {"type": ["array", "string", "null"]},
-        "Tags": {"type": ["array", "string", "null"]},
         "OrganicImpressions": {"type": ["number", "null"]},
         "PaidImpressions": {"type": ["number", "null"]},
         "Partner": {"type": ["string", "null"]},
-        "PartnerAssetLabel": {"type": ["string", "null"]},
         "PartnerMentionType": {"type": ["string", "null"]},
         "PeakLiveViewerCount": {"type": ["number", "null"]},
         "PostValue": {"type": ["number", "null"]},
