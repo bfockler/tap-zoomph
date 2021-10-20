@@ -122,7 +122,7 @@ def do_sync(access_token, start_date, partners, feedId):
         "DislikeCount": {"type": ["number", "null"]},
         "Engagement": {"type": ["number", "null"]},
         "EngagementRate": {"type": ["number", "null"]},
-        "ExitsCount": {"type": ["string", "null"]},
+        "ExitsCount": {"type": ["number", "null"]},
         "FollowerCount": {"type": ["number", "null"]},
         "FollowersGained": {"type": ["number", "null"]},
         "FollowerInteractionRate": {"type": ["number", "null"]},
