@@ -191,7 +191,7 @@ def do_sync(access_token, start_date, partners, feedId):
     for p in posts:
       singer.write_records("zoomph", [p])
 
-    state = {"currently_syncing": "false"}
+    state = {"currently_syncing": None}
     singer.write_state(state)
 
 
