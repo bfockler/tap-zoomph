@@ -73,7 +73,7 @@ def do_sync(access_token, start_date, partners, feedId):
                  }
             )
         )
-        state = {"currently_syncing": "false"}
+        state = {"currently_syncing": None}
         singer.write_state(state)
         sys.exit(-1)
 
@@ -97,7 +97,7 @@ def do_sync(access_token, start_date, partners, feedId):
             response = get(url)
             response = response.json()
           else:
-            state = {"currently_syncing": "false"}
+            state = {"currently_syncing": None}
             singer.write_state(state)
             sys.exit(-1)
     except requests.exceptions.RequestException as e:
@@ -109,7 +109,7 @@ def do_sync(access_token, start_date, partners, feedId):
                  }
             )
         )
-        state = {"currently_syncing": "false"}
+        state = {"currently_syncing": None}
         singer.write_state(state)
         sys.exit(-1)
 
